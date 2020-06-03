@@ -1,3 +1,39 @@
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 3px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 150px;
+}
+
+li, span {
+  font-size: 20px;
+  margin: 10px;
+  display: inline;
+  color: white;
+  cursor: pointer;
+}
+
+span {
+  display: block;
+  cursor: copy;
+}
+
+li:hover {
+  color: wheat;
+}
+
+.member {
+  text-align: center;
+}
+
 .App {
   text-align: center;
 }

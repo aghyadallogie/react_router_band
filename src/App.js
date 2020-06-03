@@ -1,12 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react'
 import './App.css';
+import { Switch, Route } from "react-router-dom";
+import Nav from './components/Nav';
+import Member from './components/Member';
 
-function App() {
-  return (
-    <div className="App">
-      xillo verrld!
-    </div>
-  );
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = { members: [] };
+  }
+
+  componentDidMount() {
+    this.setState({
+      members: [
+        { name: "Syd Barrett", role: "Vocals and Guitar", birthday: "6 January 1946", img: "https://img.discogs.com/6P-pwemJt-41PQ5MrXHYDbgNsaI=/600x450/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/A-178489-1128224435.jpeg.jpg" },
+        { name: "Roger Waters", role: "Vocals and Bass", birthday: "6 September 1943", img: "https://img.discogs.com/6P-pwemJt-41PQ5MrXHYDbgNsaI=/600x450/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/A-178489-1128224435.jpeg.jpg" },
+        { name: "David Gilmour", role: "Vocals and Lead", birthday: "6 March 1946", img: "https://img.discogs.com/6P-pwemJt-41PQ5MrXHYDbgNsaI=/600x450/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/A-178489-1128224435.jpeg.jpg" },
+        { name: "Rick Wright", role: "Vocals and Keyboard", birthday: "28 July 1943", img: "https://img.discogs.com/6P-pwemJt-41PQ5MrXHYDbgNsaI=/600x450/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/A-178489-1128224435.jpeg.jpg" },
+        { name: "Nick Mason", role: "Drums and Percussions", birthday: "27 January 1944", img: "https://img.discogs.com/6P-pwemJt-41PQ5MrXHYDbgNsaI=/600x450/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/A-178489-1128224435.jpeg.jpg" }
+      ]
+    })
+  }
+
+  render() {
+    let barrett = this.state.members.filter(mem => mem.name === 'Syd Barrett');
+    let waters = this.state.members.filter(mem => mem.name === 'Roger Waters');
+    let gilmour = this.state.members.filter(mem => mem.name === 'David Gilmour');
+    let wright = this.state.members.filter(mem => mem.name === 'Rick Wright');
+    let mason = this.state.members.filter(mem => mem.name === 'Nick Mason');
+
+    return (
+      <>
+        <Nav></Nav>
+        <Switch>
+          <Route path="/barrett">
+            <Member data={barrett}></Member>
+          </Route>
+          <Route path="/waters">
+            <Member data={waters}></Member>
+          </Route>
+          <Route path="/gilmour">
+            <Member data={gilmour}></Member>
+          </Route>
+          <Route path="/wright">
+            <Member data={wright}></Member>
+          </Route>
+          <Route path="/mason">
+            <Member data={mason}></Member>
+          </Route>
+        </Switch>
+      </>
+    )
+  }
 }
-
-export default App;
