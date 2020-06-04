@@ -23,29 +23,29 @@ export default class App extends Component {
   }
 
   render() {
-    let barrett = this.state.members.filter(mem => mem.name === 'Syd Barrett');
-    let waters = this.state.members.filter(mem => mem.name === 'Roger Waters');
-    let gilmour = this.state.members.filter(mem => mem.name === 'David Gilmour');
-    let wright = this.state.members.filter(mem => mem.name === 'Rick Wright');
-    let mason = this.state.members.filter(mem => mem.name === 'Nick Mason');
+    let barrett = this.state.members.find(mem => mem.name === 'Syd Barrett');
+    let waters = this.state.members.find(mem => mem.name === 'Roger Waters');
+    let gilmour = this.state.members.find(mem => mem.name === 'David Gilmour');
+    let wright = this.state.members.find(mem => mem.name === 'Rick Wright');
+    let mason = this.state.members.find(mem => mem.name === 'Nick Mason');
 
     return (
       <>
         <Nav></Nav>
         <Switch>
-          <Route path="/barrett">
+          <Route key="1" path="/barrett">
             <Member data={barrett}></Member>
           </Route>
-          <Route path="/waters">
+          <Route key="2" path="/waters">
             <Member data={waters}></Member>
           </Route>
-          <Route path="/gilmour">
+          <Route key="3" path="/gilmour">
             <Member data={gilmour}></Member>
           </Route>
-          <Route path="/wright">
+          <Route key="4" path="/wright">
             <Member data={wright}></Member>
           </Route>
-          <Route path="/mason">
+          <Route key="5" path="/mason">
             <Member data={mason}></Member>
           </Route>
         </Switch>

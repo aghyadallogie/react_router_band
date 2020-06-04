@@ -1,27 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Member = (props) => {
-    let { data } = props;
+export default class Member extends Component {
 
-    return (
-        <div className="member">
-            <img src={data.img} alt="member" width="600px"></img>
-            <span>{data.role}</span>
-        </div>
-    )
+    constructor(props) {
+        super(props);
+
+    }
+
+    render() {
+        return (
+            this.props.data ? (
+                <div className="member">
+                    <img src="" alt="member" width="600px"></img>
+                    <span>{this.props.data.name}</span>
+                </div>) : 'loading'
+        )
+    }
 }
 
-export default Member;
-
-
-
-// export default class Member extends Component {
-//     render() {
-//         return (
-//             <div className="member">
-//             <img src={data.img} alt="member" width="600px"></img>
-//             <span>{data.role}</span>
-//         </div>
-//         )
-//     }
-// }
